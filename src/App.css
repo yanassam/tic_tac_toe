@@ -1,16 +1,15 @@
 body {
-  background-image: url("./assets/scale_1200.jpg");
-  
+  background-image: url("./assets/scale_1200.jpg");  
   background-repeat: no-repeat; 
   background-attachment: fixed; 
   background-size: contain;
-background-position: center;
-  opacity: 0.8; 
-  /* filter: grayscale(50%); */
+  background-position: center;
+  opacity: 0.8;  
   margin: 0;
   padding: 0;
   height: 100vh;
  }
+
 .app {
   font-family: "Garamond", serif;
   text-align: center;
@@ -22,7 +21,6 @@ background-position: center;
   justify-content: center;
   align-items: center;
 }
-
 
 h1 {
   font-family: "Garamond", serif;
@@ -36,27 +34,22 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 120px);
   grid-template-rows: repeat(3, 120px);
-  gap: 15px; /* Промежутки между клетками */
-  justify-content: center; /* Выравнивание по центру */
-  align-items: center; /* Вертикальное выравнивание */
-  margin: 0 auto; /* Центровка доски */
-  border: 5px solid #7a5230; /* Граница доски */
+  gap: 15px; 
+  justify-content: center; 
+  align-items: center; 
+  margin: 0 auto; 
+  border: 5px solid #7a5230; 
   background-color: #f5deb3;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
+
 h1 {
   font-size: 42px;
   margin-bottom: 20px;
   text-align: center;
 }
-/* Стиль для ячеек (кнопок) */
-.square {   
- 
-  /* transition: all 0.3s ease;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); 
-  font-family: "Garamond", serif;
-  color: #3b2f22; Цвет чернил */
 
+.square {   
   width: 120px;
   height: 120px;
   background-color: #f0e1c5;
@@ -68,32 +61,32 @@ h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-sizing: border-box; /* Чтобы границы не нарушали размеры */
+  box-sizing: border-box; 
 }
 
-/* Эффект при наведении на ячейку */
+
 .square:hover {
-  background-color: #d4b185; /* Более темный оттенок для эффекта нажатия */
+  background-color: #d4b185; 
 }
 
-/* Эффект при нажатии на ячейку */
+
 .square:active {
-  background-color: #c49a6c; /* Темный оттенок для имитации нажатия */
+  background-color: #c49a6c; 
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Статус игры */
+
 .game-info {
   margin-top: 20px;
   font-size: 24px;
-  color: #4a3b27; /* Темный цвет чернил */
+  color: #4a3b27; 
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Garamond", serif;
 }
 
-/* Кнопка для новой игры */
+
 .game-info button {
   background-color: #7a5230;
   color: #f0e1c5;
@@ -107,14 +100,14 @@ h1 {
 }
 
 .game-info button:hover {
-  background-color: #5c3c21; /* Темнее при наведении */
+  background-color: #5c3c21; 
 }
 
 .game-info button:active {
-  background-color: #4a2e18; /* Самый темный оттенок при нажатии */
+  background-color: #4a2e18; 
 }
 
-/* Адаптация для мобильных устройств */
+
 @media (max-width: 600px) {
   .board {
     grid-template-columns: repeat(3, 80px);
