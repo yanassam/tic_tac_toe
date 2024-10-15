@@ -1,8 +1,14 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import "./App.css";
 import Board from "./components/Board";
 import GameInfo from "./components/GameInfo";
+import { playSoundWithTimeout } from "./utils/soundUtils";
+
+const soundX = new Audio("/public/sounds/Kantata.mp3");
+const soundO = new Audio("/public/sounds/Minuet.mp3");
+const soundWin = new Audio("/public/sounds/Bah.mp3");
+const soundDraw = new Audio("/public/sounds/Minuet.mp3");
+
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
@@ -26,36 +32,57 @@ function calculateWinner(squares) {
 function App() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXISNext] = useState(true);
+  const [winner, setWinner] = useState(null);
+
   const handleClick = (index) => {
     const newSquares = squares.slice();
+
     if (calculateWinner(newSquares) || newSquares[index]) {
       return;
     }
-    newSquares[index] = xIsNext ? "X" : "0";
+
+    newSquares[index] = xIsNext ? "X" : "O";
+
+    const potentialWinner = calculateWinner(newSquares);
+
+    if (potentialWinner) {
+      playSoundWithTimeout(soundWin, 10000);
+      setWinner(potentialWinner);
+    } else if (squares.every((square) => square !== null)) {
+      playSoundWithTimeout(soundDraw, 4000);
+    } else {
+      if (xIsNext) {
+        playSoundWithTimeout(soundX, 4000);
+      } else {
+        playSoundWithTimeout(soundO, 4000);
+      }
+    }
+
     setSquares(newSquares);
     setXISNext(!xIsNext);
   };
 
-  const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = "Winner " + winner;
+    status = "Winner: " + winner;
+  } else if (squares.every((square) => square !== null)) {
+    status = "It's a Draw!";
   } else {
-    status = "Now step " + (xIsNext ? "X" : "0");
+    status = "Next player: " + (xIsNext ? "X" : "O");
   }
 
   const resetGame = () => {
     setSquares(Array(9).fill(null));
     setXISNext(true);
+    setWinner(null);
   };
+
   return (
-    <>
-      <div className="app">
-        <h1>Tik Tac Toe</h1>
-        <Board squares={squares} onClick={handleClick} />
-        <GameInfo status={status} onReset={resetGame} />
-      </div>
-    </>
+    <div className="app">
+      <h1>Tic Tac Toe</h1>
+      <Board squares={squares} onClick={handleClick} />
+      <GameInfo status={status} onReset={resetGame} />
+    </div>
   );
 }
 
