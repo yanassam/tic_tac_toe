@@ -1,15 +1,143 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+
+.app {
+  font-family: "Garamond", serif;
   text-align: center;
-}
-.board{
+  background-color: #f3e5ab; 
+  padding: 20px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap:10px
+  justify-content: center;
+  align-items: center;
 }
-.board-row{
+
+
+h1 {
+  font-family: "Garamond", serif;
+  font-size: 42px;
+  color: #3b2f22; 
+  margin-bottom: 20px;
+  text-shadow: 2px 2px #d4b185; 
+}
+
+.board {
+  /* display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 5px solid #7a5230; 
+  background-color: #f5deb3; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень для объема 
+  padding: 10px; */
+
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  gap: 15px; /* Промежутки между клетками */
+  justify-content: center; /* Выравнивание по центру */
+  align-items: center; /* Вертикальное выравнивание */
+  margin: 0 auto; /* Центровка доски */
+  border: 5px solid #7a5230; /* Граница доски */
+  background-color: #f5deb3;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+/* Стиль для ячеек (кнопок) */
+.square {   
+ 
+  /* transition: all 0.3s ease;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); 
+  font-family: "Garamond", serif;
+  color: #3b2f22; Цвет чернил */
+
+  width: 120px;
+  height: 120px;
+  background-color: #f0e1c5;
+  border: 2px solid #7a5230;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box; /* Чтобы границы не нарушали размеры */
+}
+
+/* Эффект при наведении на ячейку */
+.square:hover {
+  background-color: #d4b185; /* Более темный оттенок для эффекта нажатия */
+}
+
+/* Эффект при нажатии на ячейку */
+.square:active {
+  background-color: #c49a6c; /* Темный оттенок для имитации нажатия */
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Статус игры */
+.game-info {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #4a3b27; /* Темный цвет чернил */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Garamond", serif;
+}
+
+/* Кнопка для новой игры */
+.game-info button {
+  background-color: #7a5230;
+  color: #f0e1c5;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+.game-info button:hover {
+  background-color: #5c3c21; /* Темнее при наведении */
+}
+
+.game-info button:active {
+  background-color: #4a2e18; /* Самый темный оттенок при нажатии */
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 600px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .game-info {
+    font-size: 18px;
+  }
+
+  .game-info button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
 }
