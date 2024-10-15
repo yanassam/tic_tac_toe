@@ -1,4 +1,16 @@
-
+body {
+  background-image: url("./assets/scale_1200.jpg");
+  
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-size: contain;
+background-position: center;
+  opacity: 0.8; 
+  /* filter: grayscale(50%); */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+ }
 .app {
   font-family: "Garamond", serif;
   text-align: center;
@@ -20,19 +32,7 @@ h1 {
   text-shadow: 2px 2px #d4b185; 
 }
 
-.board {
-  /* display: grid;
-  grid-template-columns: repeat(3, 120px);
-  grid-template-rows: repeat(3, 120px);
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  border: 5px solid #7a5230; 
-  background-color: #f5deb3; 
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень для объема 
-  padding: 10px; */
-
+.board { 
   display: grid;
   grid-template-columns: repeat(3, 120px);
   grid-template-rows: repeat(3, 120px);

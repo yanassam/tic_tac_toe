@@ -39,9 +39,9 @@ function App() {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = "Winner" + winner;
+    status = "Winner " + winner;
   } else {
-    status = "New player" + (xIsNext ? "X" : "0");
+    status = "Now step " + (xIsNext ? "X" : "0");
   }
 
   const resetGame = () => {
